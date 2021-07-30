@@ -27,25 +27,10 @@ I am using node version 14.17.3 to build this application, on a Mac OS bigSur 11
 directions for windows 10 will be added in if any modifications are needed.
 
 ### server ###
-within the WorkoutAppV2/server directory
-```
-npm install 
-```
-
-As of now, the server will be locally hosted on port 8000, so typing in
-```
-http://localhost:8000/
-```
-to your browser should display a sandbox to mess around with.
+see the server README
 
 ### mobile ###
-within the WorkoutAppV2/mobile directory
-
-#### ios ####
-
-#### android ####
-not sure yet
+see the mobile README
 
 ### web ###
-within the WorkoutAppV2/web directory
-not sure yet
+see the web README
