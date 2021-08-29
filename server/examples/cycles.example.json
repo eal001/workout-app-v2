@@ -5,14 +5,14 @@
             "numDays": 2,
             "startDate": "", 
             "endDate": "",
-            "days": ["ABC5", "AGT6"],
+            "days": ["ABC5", "AGT6"]
         },
         {
             "_id": "24A",
             "numDays": 2,
             "startDate": "", 
             "endDate": "",
-            "days": ["ATT3","AGQ7"],
+            "days": ["ATT3","AGQ7"]
         }
     ]
 }
