@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
 
-//TODO--AND GO THROUGH EXAMPLES TOO
 const userSchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     username: String,
     password: String,
     colorScheme: String,
@@ -11,14 +10,14 @@ const userSchema = new mongoose.Schema( {
 });
 
 const routineSchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     name: String,
     numCycles: Number,
     cycles: [String]
 });
 
 const cycleSchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     numDays: Number,
     startDate: Date,
     endDate: Date,
@@ -26,7 +25,7 @@ const cycleSchema = new mongoose.Schema( {
 });
 
 const daySchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     numExercises: Number,
     date: Date,
     isRest: Boolean,
@@ -34,7 +33,7 @@ const daySchema = new mongoose.Schema( {
 });
 
 const exerciseSchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     numSets: Number,
     type: Number,
     volume: Number,
@@ -42,7 +41,7 @@ const exerciseSchema = new mongoose.Schema( {
 })
 
 const setSchema = new mongoose.Schema( {
-    _id: String,
+    //_id: String,
     weight: Number,
     reps: Number,
     volume: Number,

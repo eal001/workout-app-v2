@@ -1,0 +1,28 @@
+{
+    "days": [
+        {
+            "numExercises": 2,
+            "date": "",
+            "isRest": false,
+            "exercises": []
+        },
+        {
+            "numExercises": 0,
+            "date":"",
+            "isRest": true,
+            "exercises": []
+        },
+        {
+            "numExercises": 0,
+            "date":"",
+            "isRest": false,
+            "exercises": []
+        },
+        {
+            "numExercises": 0,
+            "date":"",
+            "isRest": true,
+            "exercises": []
+        }
+    ]
+}

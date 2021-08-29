@@ -1,0 +1,75 @@
+{
+    "sets": [
+        {
+            "weight": 75,
+            "reps": 8,
+            "volume": 600,
+            "isComplete": true
+        },
+        {
+            "weight": 100,
+            "reps": 5,
+            "volume": 500,
+            "isComplete": true
+        },
+        {
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true
+        },
+        {
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true
+        },
+        {
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true
+        },
+        {
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true
+        },
+        {
+            "weight": 100,
+            "reps": 8,
+            "volume": 800,
+            "isComplete": true
+        },
+        {
+            "weight": 120,
+            "reps": 5,
+            "volume": 600,
+            "isComplete": false
+        },
+        {
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": true
+        },
+        {
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false
+        },
+        {
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false
+        },
+        {
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false
+        }
+    ]
+}

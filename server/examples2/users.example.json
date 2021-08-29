@@ -1,0 +1,18 @@
+{
+    "users":[
+        {
+            "username": "PaperCurler23",
+            "password": "password",
+            "colorScheme": "Light",
+            "routines": [],
+            "inKilos": false
+        },
+        {
+            "username": "WaterSpiller23",
+            "password": "password",
+            "colorScheme": "Dark",
+            "routines": [],
+            "inKilos": true
+        }
+    ]
+}
