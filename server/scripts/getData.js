@@ -12,4 +12,6 @@ const setdata = require("../examples/sets.example.json")
 mongoose.connect(url, {useNewUrlParser: true}) //.then(console.log( "mongo database opened on " + url))
 console.log("mongo database initialized on " + url)
 
-models.User.find
+// Edit the script here
+
+//mongoose.connection.close()

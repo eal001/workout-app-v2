@@ -14,11 +14,16 @@ console.log("mongo database initialized on " + url)
 
 //Add here
 const obj = {
-    "username": "WaterSpiller23",
+    "username": "veganman",
     "password": "password",
     "colorScheme": "Dark",
     "routines": [],
     "inKilos": true
 }
 
-models.User.create(obj)
+models.User.create(obj, function(error, data) {
+    if (error) return handleError(error)
+    console.log(data.id)
+})
+
+//mongoose.connection.close()
