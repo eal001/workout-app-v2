@@ -1,0 +1,100 @@
+{
+    "sets": [
+        {
+            "_id": "1g",
+            "weight": 75,
+            "reps": 8,
+            "volume": 600,
+            "isComplete": true,
+            "exercise": "DDR1" 
+        },
+        {
+            "_id": "2g",
+            "weight": 100,
+            "reps": 5,
+            "volume": 500,
+            "isComplete": true,
+            "exercise": "DDR1"
+        },
+        {
+            "_id": "1f",
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true,
+            "exercise": "DDR2"
+        },
+        {
+            "_id": "2f",
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true,
+            "exercise": "DDR2"
+        },
+        {
+            "_id": "3f",
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true,
+            "exercise": "DDR2"
+        },
+        {
+            "_id": "4f",
+            "weight": 10,
+            "reps": 10,
+            "volume": 100,
+            "isComplete": true,
+            "exercise": "DDR2"
+        },
+        {
+            "_id": "3g",
+            "weight": 100,
+            "reps": 8,
+            "volume": 800,
+            "isComplete": true,
+            "exercise": "DDR3"
+        },
+        {
+            "_id": "4g",
+            "weight": 120,
+            "reps": 5,
+            "volume": 600,
+            "isComplete": false,
+            "exercise": "DDR3"
+        },
+        {
+            "_id": "5f",
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": true,
+            "exercise": "DDR4"
+        },
+        {
+            "_id": "6f",
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false,
+            "exercise": "DDR4"
+        },
+        {
+            "_id": "7f",
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false,
+            "exercise": "DDR4"
+        },
+        {
+            "_id": "8f",
+            "weight": 15,
+            "reps": 10,
+            "volume": 150,
+            "isComplete": false,
+            "exercise": "DDR4"
+        }
+    ]
+}
