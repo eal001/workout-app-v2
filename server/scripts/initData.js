@@ -106,9 +106,8 @@ async function insertAll() {
             console.log(e)
         });
 
+    mongoose.connection.close()
 
 }
 
 insertAll();
-
-//mongoose.connection.close()

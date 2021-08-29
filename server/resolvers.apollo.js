@@ -4,6 +4,7 @@
  * This file will act as the actual definition of the query and mutation requests.
  * This file will alos need to connect to the MongoDB database wherever it is currently being stored. 
  */
+
 const routines = require("./examples/routines.example.json").routines
 const cycles = require("./examples/cycles.example.json").cycles
 const days = require("./examples/days.example.json").days
