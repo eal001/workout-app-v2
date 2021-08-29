@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-//TODO: edit schemas to not include parent ID's --AND GO THROUGH EXAMPLES TOO
+//TODO--AND GO THROUGH EXAMPLES TOO
 const userSchema = new mongoose.Schema( {
     _id: String,
     username: String,
@@ -23,7 +23,6 @@ const cycleSchema = new mongoose.Schema( {
     startDate: Date,
     endDate: Date,
     days: [String],
-    routine: String
 });
 
 const daySchema = new mongoose.Schema( {
@@ -32,7 +31,6 @@ const daySchema = new mongoose.Schema( {
     date: Date,
     isRest: Boolean,
     exercises: [String],
-    cycle: String 
 });
 
 const exerciseSchema = new mongoose.Schema( {
@@ -41,7 +39,6 @@ const exerciseSchema = new mongoose.Schema( {
     type: Number,
     volume: Number,
     sets: [String],
-    day: String
 })
 
 const setSchema = new mongoose.Schema( {
@@ -50,7 +47,6 @@ const setSchema = new mongoose.Schema( {
     reps: Number,
     volume: Number,
     isComplete: Boolean,
-    exercise: [String]
 })
 
 module.exports = { 

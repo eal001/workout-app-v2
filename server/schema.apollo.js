@@ -5,7 +5,6 @@
  * It also provides an abstraction / header file of how the querys and mutations will act.
  */
 
-// TODO edit the schemas to not include parent ID's 
 const {gql} = require("apollo-server");
 const typeDefs = gql`
 type Set {
@@ -14,7 +13,6 @@ type Set {
     reps: Int,
     volume: Float,
     isComplete: Boolean
-    exercise: ID!
 }
 
 input SetInput {
@@ -22,7 +20,6 @@ input SetInput {
     reps: Int,
     volume: Float,
     isComplete: Boolean
-    exercise: ID!
 }
 
 type Exercise{
@@ -32,7 +29,6 @@ type Exercise{
     type: Int,
     volume: Float,
     sets: [ID!]
-    day: ID!
 }
 
 input ExerciseInput {
@@ -49,7 +45,6 @@ type Day {
     date: String,
     isRest: Boolean,
     exercises: [ID!]
-    cycle: ID!
 }
 
 input DayInput {
@@ -57,7 +52,6 @@ input DayInput {
     date: String,
     isRest: Boolean,
     exercises: [ID!]
-    cycle: ID!
 }
 
 type Cycle {
@@ -66,7 +60,6 @@ type Cycle {
     startDate: String,
     endDate: String,
     days: [ID!]
-    routine: ID!
 }
 
 input CycleInput {
@@ -74,7 +67,6 @@ input CycleInput {
     startDate: String,
     endDate: String,
     days: [ID!]
-    routine: ID!
 }
 
 type Routine {

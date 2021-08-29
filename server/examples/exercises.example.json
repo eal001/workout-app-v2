@@ -6,8 +6,7 @@
             "numSets": 2,
             "type": 0,
             "volume": 1100,
-            "sets": ["1g", "2g"],
-            "day": "ABC5"
+            "sets": ["1g", "2g"]
         },
         {
             "_id": "DDR2",
@@ -15,8 +14,7 @@
             "numSets": 4,
             "type": 1,
             "volume": 400,
-            "sets": ["1f", "2f", "3f", "4f"],
-            "day": "ABC5"
+            "sets": ["1f", "2f", "3f", "4f"]
         },
         {
             "_id": "DDR3",
@@ -24,8 +22,7 @@
             "numSets":2,
             "type": 0,
             "volume": 1400,
-            "sets": ["3g", "4g"],
-            "day": "ABC5"
+            "sets": ["3g", "4g"]
         },
         {
             "_id": "DDR4",
@@ -33,8 +30,7 @@
             "numSets": 4,
             "type": 1,
             "volume": 600,
-            "sets": ["5f", "6f", "7f", "8f"],
-            "day": "ABC5"
+            "sets": ["5f", "6f", "7f", "8f"]
         }
     ]
 }

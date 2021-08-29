@@ -6,7 +6,6 @@
             "startDate": "", 
             "endDate": "",
             "days": ["ABC5", "AGT6"],
-            "routine": "1B"
         },
         {
             "_id": "24A",
@@ -14,7 +13,6 @@
             "startDate": "", 
             "endDate": "",
             "days": ["ATT3","AGQ7"],
-            "routine": "1B"
         }
     ]
 }
