@@ -11,18 +11,23 @@ const days = require("./examples/days.example.json").days
 const exercises = require("./examples/exercises.example.json").exercises
 const sets = require("./examples/sets.example.json").sets
 
+const qrs = require("./queryResolvers.apollo.js")
+
 const resolvers = {
     Query: {
-        // general return all querys
-        routines: () => routines,
-        cycles: () => cycles,
-        days: () => days,
-        exercises: () => exercises,
-        sets: () => sets,
-
-        //return the object based on ID
+        // 'Get' requests with ID payloads
+        routines: (_, {id}) => qrs.routines(id),
+        routine: (_, {id}) =>  qrs.routine(id),
+        cycles: (_, {id}) => qrs.cycles(id),
+        cycle: (_, {id}) => qrs.cycle(id),
+        days: (_, {id}) => qrs.days(id),
+        day: (_, {id}) => qrs.day(id),
+        exercises: (_, {id}) => qrs.exercises(id),
+        exercise:  (_, {id}) => qrs.exercise(id),
+        sets: (_, {id}) => qrs.sets(id),
+        set: (_, {id}) => qrs.set(id)
         
-    },
+    }
 };
 
 module.exports = resolvers;

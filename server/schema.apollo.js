@@ -83,8 +83,7 @@ input RoutineInput {
 }  
 
 type Query {
-    routines: [Routine],                                        # gives all Routines                           .
-    userRoutines(id: ID!): [Routine],                           # gives all relavent routines from a User ID   .
+    routines(id: ID!): [Routine],                               # gives all relavent routines from a User ID   .
     routine(id: ID!): Routine,                                  # gives a specific routine from a routine ID   .
     cycles(id: ID!): [Cycle],                                   # gives all cycles from a routine ID           .
     cycle(id: ID!): Cycle,                                      # gives specific cycle from a cycle ID         .
