@@ -4,6 +4,7 @@ const {User, Routine, Cycle, Day, Exercise, Set} = require("./model.mongo.js")
 const url = process.env.MONGO_URL;
 
 mongoose.connect(url, {useNewUrlParser: true});
+console.log("mongodb connection opened on port " + process.env.MONGO_PORT)
 
 const user = async (id) => {
     let user = await User.findById(id)
@@ -152,6 +153,14 @@ const set = async (id) => {
     })
     return s
 }
+
+const addRoutine = async (id) => {
+
+}
+const addCycle = async (id) => {
+
+}
+
 
 module.exports = {
     user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set

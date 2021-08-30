@@ -11,7 +11,7 @@ const days = require("./examples/days.example.json").days
 const exercises = require("./examples/exercises.example.json").exercises
 const sets = require("./examples/sets.example.json").sets
 
-const qrs = require("./queryResolvers.apollo.js")
+const qrs = require("./resolvers.mongo.js")
 
 const resolvers = {
     Query: {
@@ -26,7 +26,6 @@ const resolvers = {
         exercise:  (_, {id}) => qrs.exercise(id),
         sets: (_, {id}) => qrs.sets(id),
         set: (_, {id}) => qrs.set(id)
-        
     }
 };
 
