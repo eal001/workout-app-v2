@@ -154,14 +154,148 @@ const set = async (id) => {
     return s
 }
 
-const addRoutine = async (id) => {
+//add mutators
 
+const addRoutine = async (routine) => {
+    let newRoutine = new Routine({
+        name: routine.name,
+        numCycles: routine.numCycles,
+        cycles: routine.cycles,
+    })
+    newRoutine.save( (err, r ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + r.id  +")")
+        newRoutine = r
+    })
+    return newRoutine
 }
-const addCycle = async (id) => {
-
+const addCycle = async (cycle) => {
+    let newCycle = new Cycle({
+        numDays: cycle.numDays,
+        startDate: cycle.startDate,
+        endDate: cycle.endDate,
+        days: cycle.days
+    })
+    newCycle.save( (err, c ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + c.id  +")")
+        newCycle = c
+    })
+    return newCycle
+}
+const addDay = async (day) => {
+    let newDay = new Day({
+        numExercises: day.numExercises,
+        date: day.date,
+        isRest: day.isRest,
+        exercises: day.exercises
+    })
+    newDay.save( (err, d ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + d.id  +")")
+        newDay = d
+    })
+    return newDay
+}
+const addExercise = async (exercise) => {
+    let newExercise = new Exercise({
+        name: exercise.name,
+        numSets: exercise.numSets,
+        type: exercise.type,
+        volume: exercise.volume,
+        sets: exercise.sets
+    })
+    newExercise.save( (err, e ) => {
+        if (err) return console.log(err)
+        console.log("saved exercise("  + e.id  +")")
+        newExercise = e
+    })
+    return newExercise
+}
+const addSet = async (set) => {
+    let newSet = new Set({
+        weight: set.weight,
+        reps: set.reps,
+        volume: set.volume,
+        isComplete: set.isComplete
+    })
+    newSet.save( (err, s ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + s.id  +")")
+        newSet = s
+    })
+    return newSet
 }
 
+//delete mutators
+const deleteSet = async (id) => {
+    const oldSet = await Set.findById(id)
+
+    Set.findByIdAndDelete({_id: id}, function(err) {
+        if(err) {
+            console.log(err)
+            console.log("could not find set " + id)
+        }
+    })
+
+    return oldSet
+}
+
+const deleteExercise = async (id) => {
+    const oldExercise = await Exercise.findById(id)
+
+    Exercise.findByIdAndDelete({_id: id}, function(err) {
+        if(err){
+             console.log(err)
+             console.log("could not find exercise " + id)
+        }
+    })
+
+    return oldExercise
+}
+
+const deleteDay = async (id) => {
+    const oldDay = await Day.findById(id)
+
+    Day.findByIdAndDelete({_id: id}, function(err) {
+        if(err) {
+            console.log(err)
+            console.log("could not find day " + id)
+        }
+    })
+
+    return oldDay
+}
+
+const deleteCycle = async (id) => {
+    const oldCycle = await Cycle.findById(id)
+
+    Cycle.findByIdAndDelete({_id: id}, function(err){
+        if(err){
+            console.log(err)
+            console.log("could not find cycle" + id)
+        }
+    })
+}
+
+const deleteRoutine = async (id) => {
+    const oldRoutine = Routine.findById(id)
+
+    Routine.findByIdAndDelete({_id: id}, function(err){
+        if(err){
+            console.log(err)
+            console.log("could not find routine " + id )
+        }
+    })
+
+    return oldRoutine
+}
 
 module.exports = {
-    user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set
+    //Querys
+    user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set,
+    //Add Mutators
+    addSet, addExercise, addDay, addCycle, addRoutine,
+    //delete Mutators
+    deleteSet, deleteExercise, deleteDay, deleteCycle, deleteRoutine
 }

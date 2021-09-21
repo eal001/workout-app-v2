@@ -26,6 +26,20 @@ const resolvers = {
         exercise:  (_, {id}) => qrs.exercise(id),
         sets: (_, {id}) => qrs.sets(id),
         set: (_, {id}) => qrs.set(id)
+    },
+    Mutation: {
+        addSet: (_, {set}) => qrs.addSet(set),
+        addExercise: (_, {exercise}) => qrs.addExercise(exercise),
+        addDay: (_, {day}) => qrs.addDay(day),
+        addCycle: (_, {cycle}) => qrs.addCycle(cycle),
+        addRoutine: (_, {routine}) => qrs.addRoutinet(routine),
+
+        deleteSet: (_, {id}) => qrs.deleteSet(id),
+        deleteExercise: (_, {id}) => qrs.deleteExercise(id),
+        deleteDay: (_, {id}) => qrs.deleteDay(id),
+        deleteCycle: (_, {id}) => qrs.deleteCycle(id),
+        deleteRoutine: (_, {id}) => qrs.deleteRoutine(id)
+        
     }
 };
 

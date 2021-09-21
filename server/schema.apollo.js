@@ -96,11 +96,11 @@ type Query {
 }
 
 type Mutation {
-    addRoutine(routine: RoutineInput): ID!,                     # adds a routine to the database, returning its new unique ID
-    addCycle(cycle: CycleInput, id: ID!): ID!,                  # adds a new Cycle to the given routine(by ID) and returns the new Cycle ID
-    addDay(day: DayInput, id: ID!): ID!,                        # adds a new day to the given cycle(by ID) and returns the new day ID
-    addExercise(exercise:  ExerciseInput, id: ID!): ID!,        # adds a new exercise to the given day(by ID) and returns the new exercise ID
-    addSet(set: SetInput, id: ID!): ID!,                        # adds a new Set to the given exercise(by ID) and returns the new set ID
+    addRoutine(routine: RoutineInput): Routine,                     # adds a routine to the database, returning its new unique ID
+    addCycle(cycle: CycleInput): Cycle,                  # adds a new Cycle to the given routine(by ID) and returns the new Cycle ID
+    addDay(day: DayInput): Day,                        # adds a new day to the given cycle(by ID) and returns the new day ID
+    addExercise(exercise:  ExerciseInput): Exercise,        # adds a new exercise to the given day(by ID) and returns the new exercise ID
+    addSet(set: SetInput): Set,                        # adds a new Set to the given exercise(by ID) and returns the new set ID
     
     deleteRoutine(id: ID!): Routine,                            # deletes a routine from the databasse, given its ID
     deleteCycle(id: ID!): Cycle,                                # deletes a cycle from the database, given its ID
