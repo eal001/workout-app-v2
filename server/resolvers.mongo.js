@@ -279,7 +279,7 @@ const deleteCycle = async (id) => {
 }
 
 const deleteRoutine = async (id) => {
-    const oldRoutine = Routine.findById(id)
+    const oldRoutine = await Routine.findById(id)
 
     Routine.findByIdAndDelete({_id: id}, function(err){
         if(err){
@@ -291,11 +291,76 @@ const deleteRoutine = async (id) => {
     return oldRoutine
 }
 
+/**
+ * 
+ * @param {the new set with some/all of the new attributes} newSet 
+ * @param {ID of the old set to edit} id 
+ * @returns the new set with the corresponding ID
+ */
+const editSet = async (newSet, id) => {
+    const oldSet = await Set.findById(id)
+    newSet = {
+        weight: newSet.weight != undefined ? newSet.weight : oldSet.weight,
+        reps: newSet.reps != undefined ? newSet.reps : oldSet.reps,
+        isComplete: newSet.isComplete != undefined ? newSet.isComplete : oldSet.isComplete
+    }
+    newSet.volume = newSet.weight * newSet.reps
+
+    //console.log(newSet)
+
+    newSet = new Set({
+        weight: newSet.weight,
+        reps: newSet.reps,
+        volume: newSet.volume,
+        isComplete: newSet.isComplete
+    })
+
+    await newSet.save( (err, s ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + s.id  +")")
+        newSet = s
+    })
+
+    Set.findByIdAndDelete({_id: id}, function(err) {
+        if(err){
+            console.log(err)
+            console.log("could not find routine to delete")
+        }    
+    })
+
+    return newSet
+}
+
+const editExercise = async (newExercise) => {
+
+
+    return newExercise
+}
+
+const editDay = async (newDay) => {
+
+
+    return newDay
+}
+
+const editCycle = async (newCycle) => {
+
+
+    return newCycle
+}
+const editRoutine = async (newRoutine) => {
+
+
+    return newRoutine
+}
+
 module.exports = {
     //Querys
     user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set,
     //Add Mutators
     addSet, addExercise, addDay, addCycle, addRoutine,
     //delete Mutators
-    deleteSet, deleteExercise, deleteDay, deleteCycle, deleteRoutine
+    deleteSet, deleteExercise, deleteDay, deleteCycle, deleteRoutine,
+    //edit Mutators
+    editSet, editExercise, editDay, editCycle, editRoutine
 }

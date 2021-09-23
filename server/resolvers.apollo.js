@@ -38,8 +38,9 @@ const resolvers = {
         deleteExercise: (_, {id}) => qrs.deleteExercise(id),
         deleteDay: (_, {id}) => qrs.deleteDay(id),
         deleteCycle: (_, {id}) => qrs.deleteCycle(id),
-        deleteRoutine: (_, {id}) => qrs.deleteRoutine(id)
+        deleteRoutine: (_, {id}) => qrs.deleteRoutine(id),
         
+        editSet: (_, {set, id}) => qrs.editSet(set ,id)
     }
 };
 
