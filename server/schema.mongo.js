@@ -13,7 +13,8 @@ const routineSchema = new mongoose.Schema( {
     //_id: String,
     name: String,
     numCycles: Number,
-    cycles: [String]
+    cycles: [String],
+    parent: String
 });
 
 const cycleSchema = new mongoose.Schema( {
@@ -22,6 +23,7 @@ const cycleSchema = new mongoose.Schema( {
     startDate: Date,
     endDate: Date,
     days: [String],
+    parent: String
 });
 
 const daySchema = new mongoose.Schema( {
@@ -30,6 +32,7 @@ const daySchema = new mongoose.Schema( {
     date: Date,
     isRest: Boolean,
     exercises: [String],
+    parent: String
 });
 
 const exerciseSchema = new mongoose.Schema( {
@@ -38,6 +41,7 @@ const exerciseSchema = new mongoose.Schema( {
     type: Number,
     volume: Number,
     sets: [String],
+    parent: String
 })
 
 const setSchema = new mongoose.Schema( {
@@ -46,6 +50,7 @@ const setSchema = new mongoose.Schema( {
     reps: Number,
     volume: Number,
     isComplete: Boolean,
+    parent: String
 })
 
 module.exports = { 

@@ -161,6 +161,7 @@ const addRoutine = async (routine) => {
         name: routine.name,
         numCycles: routine.numCycles,
         cycles: routine.cycles,
+        parent: routine.parent
     })
     newRoutine.save( (err, r ) => {
         if (err) return console.log(err)
@@ -174,7 +175,8 @@ const addCycle = async (cycle) => {
         numDays: cycle.numDays,
         startDate: cycle.startDate,
         endDate: cycle.endDate,
-        days: cycle.days
+        days: cycle.days,
+        parent: cycle.parent
     })
     newCycle.save( (err, c ) => {
         if (err) return console.log(err)
@@ -188,7 +190,8 @@ const addDay = async (day) => {
         numExercises: day.numExercises,
         date: day.date,
         isRest: day.isRest,
-        exercises: day.exercises
+        exercises: day.exercises,
+        parent: day.parent
     })
     newDay.save( (err, d ) => {
         if (err) return console.log(err)
@@ -203,7 +206,8 @@ const addExercise = async (exercise) => {
         numSets: exercise.numSets,
         type: exercise.type,
         volume: exercise.volume,
-        sets: exercise.sets
+        sets: exercise.sets,
+        parent: exercise.parent
     })
     newExercise.save( (err, e ) => {
         if (err) return console.log(err)
@@ -217,7 +221,8 @@ const addSet = async (set) => {
         weight: set.weight,
         reps: set.reps,
         volume: set.volume,
-        isComplete: set.isComplete
+        isComplete: set.isComplete,
+        parent: set.parent
     })
     newSet.save( (err, s ) => {
         if (err) return console.log(err)
@@ -305,8 +310,6 @@ const editSet = async (newSet, id) => {
         isComplete: newSet.isComplete != undefined ? newSet.isComplete : oldSet.isComplete
     }
     newSet.volume = newSet.weight * newSet.reps
-
-    //console.log(newSet)
 
     newSet = new Set({
         weight: newSet.weight,
