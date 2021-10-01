@@ -5,16 +5,23 @@ The mongo server will be set up with multiple databases with each data type as a
 collections: users, routines, cycles, days, exercises, sets
 
 ## getting started ##
-within the WorkoutAppV2/server directory
+This server was built using Node.js v12.22.3
+
+within the WorkoutAppV2/server directory, type
 ```
 npm install 
 ```
+in order to install necessary dependencies
 
+booting up the server is done using the command 
+```
+npm start
+```
 As of now, the server will be locally hosted on port 8000, so typing in
 ```
 http://localhost:8000/
 ```
-to your browser should display a sandbox to mess around with.
+to your browser should display a sandbox to play around with.
 
 ## functionality ##
 For version 1, the Querys and Mutations will be built out, with data storage into a mongo 
