@@ -6,6 +6,11 @@ const url = process.env.MONGO_URL;
 mongoose.connect(url, {useNewUrlParser: true});
 console.log("mongodb connection opened on port " + process.env.MONGO_PORT)
 
+const test = async () => {
+    console.log("test request recieved and validated")
+    return "here is the test response"
+}
+
 const user = async (id) => {
     let user = await User.findById(id)
     .then(console.log("found user("+ id + ")"))
@@ -153,7 +158,6 @@ const set = async (id) => {
     })
     return s
 }
-
 //add mutators
 
 const addRoutine = async (routine) => {
@@ -170,6 +174,7 @@ const addRoutine = async (routine) => {
     })
     return newRoutine
 }
+
 const addCycle = async (cycle) => {
     let newCycle = new Cycle({
         numDays: cycle.numDays,
@@ -185,6 +190,7 @@ const addCycle = async (cycle) => {
     })
     return newCycle
 }
+
 const addDay = async (day) => {
     let newDay = new Day({
         numExercises: day.numExercises,
@@ -216,6 +222,7 @@ const addExercise = async (exercise) => {
     })
     return newExercise
 }
+
 const addSet = async (set) => {
     let newSet = new Set({
         weight: set.weight,
@@ -358,6 +365,8 @@ const editRoutine = async (newRoutine) => {
 }
 
 module.exports = {
+    //test querys
+    test,
     //Querys
     user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set,
     //Add Mutators

@@ -1,17 +1,45 @@
-const mongoose =  require("mongoose")
-require("dotenv").config()
-const url = process.env.MONGO_URL
-const models = require("../model.mongo.js")
-const userdata = require("../examples/users.example.json")
-const routinedata = require("../examples/routines.example.json")
-const cycledata = require("../examples/cycles.example.json")
-const daydata = require("../examples/days.example.json")
-const exercisedata = require("../examples/exercises.example.json")
-const setdata = require("../examples/sets.example.json")
+require("dotenv").config({path: '../.env'})
+const axios = require('axios')
+const url = process.env.APOLLO_URL
 
-mongoose.connect(url, {useNewUrlParser: true}) //.then(console.log( "mongo database opened on " + url))
-console.log("mongo database initialized on " + url)
 
-// Edit the script here
+//begin here for getting the routine
+
+console.log("requesting to server at " + url)
+
+const routineID = "616380457b40ef2013320f48"
+
+const q1 = `
+query getRoutines($routineID: ID! ) {
+    routine(id: $routineID){
+        _id
+        name
+    }
+}
+`
+const variables = {
+    routineID: routineID
+}
+
+const request = {
+    url: url,
+    method: 'post',
+    data: {query: q1, variables: variables}
+}
+
+axios(request)
+.then( (response) => {
+    //console.log("here")
+    console.log(response.data.data)
+} )
+.catch( (error) => console.log(error) )
+
+//begin here for getting the cycle
+
+//begin here for getting the day
+
+//begin here for getting the exercises
+
+//begin here for getting the sets
 
 //mongoose.connection.close()

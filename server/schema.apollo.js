@@ -21,7 +21,6 @@ input SetInput {
     reps: Int,
     volume: Float,
     isComplete: Boolean
-    parent: ID!
 }
 
 type Exercise{
@@ -42,8 +41,10 @@ input ExerciseInput {
     numSets: Int,
     type: Int,
     volume: Float,
+    maxWeight: ID!
+    maxReps: ID!
+    maxVolume: ID! 
     sets: [ID!]
-    parent: ID!
 }
 
 type Day {
@@ -60,7 +61,6 @@ input DayInput {
     date: String,
     isRest: Boolean,
     exercises: [ID!]
-    parent: ID!
 }
 
 type Cycle {
@@ -77,7 +77,6 @@ input CycleInput {
     startDate: String,
     endDate: String,
     days: [ID!]
-    parent: ID!
 }
 
 type Routine {
@@ -94,6 +93,7 @@ input RoutineInput {
 }  
 
 type Query {
+    test: String,
     routines(id: ID!): [Routine],                               # gives all relavent routines from a User ID   .
     routine(id: ID!): Routine,                                  # gives a specific routine from a routine ID   .
     cycles(id: ID!): [Cycle],                                   # gives all cycles from a routine ID           .

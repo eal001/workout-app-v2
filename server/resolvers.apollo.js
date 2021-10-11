@@ -15,6 +15,9 @@ const qrs = require("./resolvers.mongo.js")
 
 const resolvers = {
     Query: {
+        // test query
+        test: () => qrs.test(),
+        
         // 'Get' requests with ID payloads
         routines: (_, {id}) => qrs.routines(id),
         routine: (_, {id}) =>  qrs.routine(id),
