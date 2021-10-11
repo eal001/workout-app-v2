@@ -17,8 +17,9 @@ const resolvers = {
     Query: {
         // test query
         test: () => qrs.test(),
-        
+
         // 'Get' requests with ID payloads
+        user: (_, {id}) => qrs.user(id),
         routines: (_, {id}) => qrs.routines(id),
         routine: (_, {id}) =>  qrs.routine(id),
         cycles: (_, {id}) => qrs.cycles(id),
@@ -35,15 +36,22 @@ const resolvers = {
         addExercise: (_, {exercise}) => qrs.addExercise(exercise),
         addDay: (_, {day}) => qrs.addDay(day),
         addCycle: (_, {cycle}) => qrs.addCycle(cycle),
-        addRoutine: (_, {routine}) => qrs.addRoutinet(routine),
+        addRoutine: (_, {routine}) => qrs.addRoutine(routine),
+        //addUsers: (_, {users}) => qrs.addUser(user),
 
         deleteSet: (_, {id}) => qrs.deleteSet(id),
         deleteExercise: (_, {id}) => qrs.deleteExercise(id),
         deleteDay: (_, {id}) => qrs.deleteDay(id),
         deleteCycle: (_, {id}) => qrs.deleteCycle(id),
         deleteRoutine: (_, {id}) => qrs.deleteRoutine(id),
+        //deleteUser: (_, {id}) => qrs.deleteUser(id),
         
-        editSet: (_, {set, id}) => qrs.editSet(set ,id)
+        editSet: (_, {set, id}) => qrs.editSet(set ,id),
+        // editExercise: (_, {exercise, id}) => qrs.editExercise(exercise ,id),
+        // editDay: (_, {day, id}) => qrs.editDay(day ,id),
+        // editCycle: (_, {cycle, id}) => qrs.editCycle(cycle ,id),
+        // editRoutine: (_, {routine, id}) => qrs.editRoutine(routine ,id),
+        // editUser: (_, {user, id}) => qrs.editUser(user ,id),
     }
 };
 

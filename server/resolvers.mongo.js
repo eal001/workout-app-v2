@@ -6,6 +6,8 @@ const url = process.env.MONGO_URL;
 mongoose.connect(url, {useNewUrlParser: true});
 console.log("mongodb connection opened on port " + process.env.MONGO_PORT)
 
+//TODO Method headers
+
 const test = async () => {
     console.log("test request recieved and validated")
     return "here is the test response"
@@ -160,6 +162,10 @@ const set = async (id) => {
 }
 //add mutators
 
+const addUser = async (user) => {
+    //TODO
+}
+
 const addRoutine = async (routine) => {
     let newRoutine = new Routine({
         name: routine.name,
@@ -303,6 +309,11 @@ const deleteRoutine = async (id) => {
     return oldRoutine
 }
 
+const deleteUser = async(id) => {
+    //TODO
+
+}
+
 /**
  * 
  * @param {the new set with some/all of the new attributes} newSet 
@@ -342,26 +353,31 @@ const editSet = async (newSet, id) => {
 }
 
 const editExercise = async (newExercise) => {
-
+    //TODO
 
     return newExercise
 }
 
 const editDay = async (newDay) => {
 
-
+    //TODO
     return newDay
 }
 
 const editCycle = async (newCycle) => {
-
+    //TODO
 
     return newCycle
 }
 const editRoutine = async (newRoutine) => {
-
+    //TODO
 
     return newRoutine
+}
+
+const editUser = async (newUser) => {
+    //TODO
+    return newUser
 }
 
 module.exports = {
@@ -370,9 +386,9 @@ module.exports = {
     //Querys
     user, routines, routine, cycles, cycle, days, day, exercise, exercises, sets, set,
     //Add Mutators
-    addSet, addExercise, addDay, addCycle, addRoutine,
+    addSet, addExercise, addDay, addCycle, addRoutine, addUser,
     //delete Mutators
-    deleteSet, deleteExercise, deleteDay, deleteCycle, deleteRoutine,
+    deleteSet, deleteExercise, deleteDay, deleteCycle, deleteRoutine, deleteUser,
     //edit Mutators
-    editSet, editExercise, editDay, editCycle, editRoutine
+    editSet, editExercise, editDay, editCycle, editRoutine, editUser,
 }

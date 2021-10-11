@@ -7,6 +7,7 @@
 
 const {gql} = require("apollo-server");
 const typeDefs = gql`
+#define types and inputs
 type Set {
     _id: ID!,
     weight: Float,
@@ -92,8 +93,28 @@ input RoutineInput {
     cycles: [ID!]
 }  
 
+type User {
+    _id: ID!,
+    username: String,
+    password: String,
+    inKilos: Boolean,
+    colorScheme: Int,
+    routines: [Routine]
+}
+
+input UserInput {
+    username: String,
+    password: String,
+    inKilos: Boolean,
+    colorScheme: Int,
+    routines: [ID!]
+}
+
+
+#define queries here
 type Query {
     test: String,
+    user(id: ID!): User,                                        # gives the specific user based on ID
     routines(id: ID!): [Routine],                               # gives all relavent routines from a User ID   .
     routine(id: ID!): Routine,                                  # gives a specific routine from a routine ID   .
     cycles(id: ID!): [Cycle],                                   # gives all cycles from a routine ID           .
@@ -106,13 +127,16 @@ type Query {
     set(id: ID!): Set                                           # gives a specific set from a set ID           .
 }
 
+#define mutators
 type Mutation {
-    addRoutine(routine: RoutineInput): Routine,                     # adds a routine to the database, returning its new unique ID
-    addCycle(cycle: CycleInput): Cycle,                             # adds a new Cycle to the given routine(by ID) and returns the new Cycle ID
-    addDay(day: DayInput): Day,                                     # adds a new day to the given cycle(by ID) and returns the new day ID
-    addExercise(exercise:  ExerciseInput): Exercise,                # adds a new exercise to the given day(by ID) and returns the new exercise ID
-    addSet(set: SetInput): Set,                                     # adds a new Set to the given exercise(by ID) and returns the new set ID
+    addUser(user: UserInput): User,                             # adds a user to the database and returns its new user w/ unique ID
+    addRoutine(routine: RoutineInput): Routine,                 # adds a routine to the database, returning its new unique ID
+    addCycle(cycle: CycleInput): Cycle,                         # adds a Cycle to the given routine(by ID) and returns the new Cycle ID
+    addDay(day: DayInput): Day,                                 # adds a day to the given cycle(by ID) and returns the new day ID
+    addExercise(exercise:  ExerciseInput): Exercise,            # adds a exercise to the given day(by ID) and returns the new exercise ID
+    addSet(set: SetInput): Set,                                 # adds a Set to the given exercise(by ID) and returns the new set ID
     
+    deleteUser(id: ID!): User,                                  
     deleteRoutine(id: ID!): Routine,                            # deletes a routine from the databasse, given its ID
     deleteCycle(id: ID!): Cycle,                                # deletes a cycle from the database, given its ID
     deleteDay(id: ID!): Day,                                    # deletes a day from the database given its ID

@@ -2,7 +2,6 @@ require("dotenv").config({path: '../.env'})
 const axios = require('axios')
 const url = process.env.APOLLO_URL
 
-
 //begin here for getting the routine
 
 console.log("requesting to server at " + url)
