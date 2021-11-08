@@ -345,9 +345,6 @@ const editSet = async (newSet, id) => {
     await savingSet.save( (err, s ) => {
         if (err) return console.log(err)
         console.log("saved set("  + s.id  +")")
-        newSet = s
-        console.log(newSet)
-        console.log(s)
     })
 
     return savingSet;
