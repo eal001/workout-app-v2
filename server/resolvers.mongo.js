@@ -6,7 +6,7 @@ const url = process.env.MONGO_URL;
 mongoose.connect(url, {useNewUrlParser: true});
 console.log("mongodb connection opened on port " + process.env.MONGO_PORT)
 
-//TODO Method headers
+//GET query Method headers
 
 const test = async () => {
     console.log("test request recieved and validated")
@@ -160,6 +160,7 @@ const set = async (id) => {
     })
     return s
 }
+
 //add mutators
 
 const addUser = async (user) => {
@@ -246,6 +247,7 @@ const addSet = async (set) => {
 }
 
 //delete mutators
+
 const deleteSet = async (id) => {
     const oldSet = await Set.findById(id)
 
@@ -321,27 +323,8 @@ const deleteUser = async(id) => {
  * @returns the new set with the corresponding ID
  */
 const editSet = async (newSet, id) => {
-    const oldSet = await Set.findById(id)
-    newSet = {
-        weight: newSet.weight != undefined ? newSet.weight : oldSet.weight,
-        reps: newSet.reps != undefined ? newSet.reps : oldSet.reps,
-        isComplete: newSet.isComplete != undefined ? newSet.isComplete : oldSet.isComplete
-    }
-    newSet.volume = newSet.weight * newSet.reps
-
-    newSet = new Set({
-        weight: newSet.weight,
-        reps: newSet.reps,
-        volume: newSet.volume,
-        isComplete: newSet.isComplete
-    })
-
-    await newSet.save( (err, s ) => {
-        if (err) return console.log(err)
-        console.log("saved set("  + s.id  +")")
-        newSet = s
-    })
-
+        
+    //delete the old set 
     Set.findByIdAndDelete({_id: id}, function(err) {
         if(err){
             console.log(err)
@@ -349,12 +332,32 @@ const editSet = async (newSet, id) => {
         }    
     })
 
-    return newSet
+    // create mongo set from model
+    savingSet = new Set({
+        weight: newSet.weight,
+        reps: newSet.reps,
+        volume: newSet.volume,
+        isComplete: newSet.isComplete,
+        parent: newSet.parent
+    })
+
+    // save the new mongo set
+    await savingSet.save( (err, s ) => {
+        if (err) return console.log(err)
+        console.log("saved set("  + s.id  +")")
+        newSet = s
+        console.log(newSet)
+        console.log(s)
+    })
+
+    return savingSet;
 }
 
-const editExercise = async (newExercise) => {
+const editExercise = async (newExercise, id) => {
     //TODO
+    newExercise = {
 
+    }
     return newExercise
 }
 
