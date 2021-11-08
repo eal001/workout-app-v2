@@ -168,6 +168,9 @@ const addUser = async (user) => {
 }
 
 const addRoutine = async (routine) => {
+
+    console.log("tying to add new routine")
+
     let newRoutine = new Routine({
         name: routine.name,
         numCycles: routine.numCycles,
@@ -183,6 +186,9 @@ const addRoutine = async (routine) => {
 }
 
 const addCycle = async (cycle) => {
+
+    console.log("trying to add new cycle")
+
     let newCycle = new Cycle({
         numDays: cycle.numDays,
         startDate: cycle.startDate,
@@ -199,6 +205,9 @@ const addCycle = async (cycle) => {
 }
 
 const addDay = async (day) => {
+
+    console.log("trying to add new day")
+
     let newDay = new Day({
         numExercises: day.numExercises,
         date: day.date,
@@ -214,6 +223,9 @@ const addDay = async (day) => {
     return newDay
 }
 const addExercise = async (exercise) => {
+
+    console.log("trying to add new exercise")
+
     let newExercise = new Exercise({
         name: exercise.name,
         numSets: exercise.numSets,
@@ -231,6 +243,9 @@ const addExercise = async (exercise) => {
 }
 
 const addSet = async (set) => {
+
+    console.log("trying to addd new set")
+
     let newSet = new Set({
         weight: set.weight,
         reps: set.reps,
@@ -249,6 +264,9 @@ const addSet = async (set) => {
 //delete mutators
 
 const deleteSet = async (id) => {
+
+    console.log("trying to delete set " + id);
+
     const oldSet = await Set.findById(id)
 
     Set.findByIdAndDelete({_id: id}, function(err) {
@@ -258,10 +276,15 @@ const deleteSet = async (id) => {
         }
     })
 
+    console.log("deleted")
+
     return oldSet
 }
 
 const deleteExercise = async (id) => {
+
+    console.log("trying to delete exercise " + id);
+
     const oldExercise = await Exercise.findById(id)
 
     Exercise.findByIdAndDelete({_id: id}, function(err) {
@@ -270,11 +293,16 @@ const deleteExercise = async (id) => {
              console.log("could not find exercise " + id)
         }
     })
+    
+    console.log("deleted")
 
     return oldExercise
 }
 
 const deleteDay = async (id) => {
+
+    console.log("trying to delete day " + id)
+
     const oldDay = await Day.findById(id)
 
     Day.findByIdAndDelete({_id: id}, function(err) {
@@ -284,10 +312,15 @@ const deleteDay = async (id) => {
         }
     })
 
+    console.log("deleted")
+
     return oldDay
 }
 
 const deleteCycle = async (id) => {
+
+    console.log("trying to delete cycle " + id)
+
     const oldCycle = await Cycle.findById(id)
 
     Cycle.findByIdAndDelete({_id: id}, function(err){
@@ -296,9 +329,14 @@ const deleteCycle = async (id) => {
             console.log("could not find cycle" + id)
         }
     })
+
+    console.log("deleted")
 }
 
 const deleteRoutine = async (id) => {
+
+    console.log("trying to delete routine " + id)
+
     const oldRoutine = await Routine.findById(id)
 
     Routine.findByIdAndDelete({_id: id}, function(err){
@@ -307,6 +345,8 @@ const deleteRoutine = async (id) => {
             console.log("could not find routine " + id )
         }
     })
+
+    console.log("deleted")
 
     return oldRoutine
 }
