@@ -45,13 +45,13 @@ const exerciseSchema = new mongoose.Schema( {
 })
 
 const setSchema = new mongoose.Schema( {
-    //_id: String,
+    //_id: {type: String, required: false, default: null},
     weight: Number,
     reps: Number,
     volume: Number,
     isComplete: Boolean,
     parent: String
-})
+} )
 
 module.exports = { 
     userSchema, 

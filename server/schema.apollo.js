@@ -13,7 +13,7 @@ type Set {
     weight: Float,
     reps: Int,
     volume: Float,
-    isComplete: Boolean
+    isComplete: Boolean,
     parent: ID!
 }
 
@@ -21,7 +21,8 @@ input SetInput {
     weight: Float,
     reps: Int,
     volume: Float,
-    isComplete: Boolean
+    isComplete: Boolean,
+    parent: ID!
 }
 
 type Exercise{
@@ -30,10 +31,10 @@ type Exercise{
     numSets: Int,
     type: Int,
     volume: Float,
-    maxWeight: ID!
-    maxReps: ID!
-    maxVolume: ID! 
-    sets: [ID!]
+    maxWeight: ID!,
+    maxReps: ID!,
+    maxVolume: ID!,
+    sets: [ID!],
     parent: ID!
 }
 
@@ -42,10 +43,11 @@ input ExerciseInput {
     numSets: Int,
     type: Int,
     volume: Float,
-    maxWeight: ID!
-    maxReps: ID!
-    maxVolume: ID! 
-    sets: [ID!]
+    maxWeight: ID!,
+    maxReps: ID!,
+    maxVolume: ID! ,
+    sets: [ID!],
+    parent: ID!
 }
 
 type Day {
@@ -53,7 +55,7 @@ type Day {
     numExercises: Int,
     date: String,
     isRest: Boolean,
-    exercises: [ID!]
+    exercises: [ID!],
     parent: ID!
 }
 
@@ -61,7 +63,8 @@ input DayInput {
     numExercises: Int,
     date: String,
     isRest: Boolean,
-    exercises: [ID!]
+    exercises: [ID!],
+    parent: ID!
 }
 
 type Cycle {
@@ -77,20 +80,21 @@ input CycleInput {
     numDays: Int,
     startDate: String,
     endDate: String,
-    days: [ID!]
+    days: [ID!],
+    parent: ID!
 }
 
 type Routine {
     _id: ID!,
     name: String,
-    numCycles: Int,
-    cycles: [ID!]
+    cycles: [ID!],
+    parent: ID!
 }   
 
 input RoutineInput {
     name: String,
-    numCycles: Int,
-    cycles: [ID!]
+    cycles: [ID!],
+    parent: ID!
 }  
 
 type User {
