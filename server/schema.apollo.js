@@ -28,7 +28,6 @@ input SetInput {
 type Exercise{
     _id: ID!,
     name: String,
-    numSets: Int,
     type: Int,
     volume: Float,
     maxWeight: ID!,
@@ -40,7 +39,6 @@ type Exercise{
 
 input ExerciseInput {
     name: String,
-    numSets: Int,
     type: Int,
     volume: Float,
     maxWeight: ID!,
@@ -52,7 +50,6 @@ input ExerciseInput {
 
 type Day {
     _id: ID!,
-    numExercises: Int,
     date: String,
     isRest: Boolean,
     exercises: [ID!],
@@ -60,7 +57,6 @@ type Day {
 }
 
 input DayInput {
-    numExercises: Int,
     date: String,
     isRest: Boolean,
     exercises: [ID!],
@@ -69,7 +65,6 @@ input DayInput {
 
 type Cycle {
     _id: ID!,
-    numDays: Int,
     startDate: String,
     endDate: String,
     days: [ID!]
@@ -77,7 +72,6 @@ type Cycle {
 }
 
 input CycleInput {
-    numDays: Int,
     startDate: String,
     endDate: String,
     days: [ID!],

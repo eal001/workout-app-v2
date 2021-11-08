@@ -12,14 +12,12 @@ const userSchema = new mongoose.Schema( {
 const routineSchema = new mongoose.Schema( {
     //_id: String,
     name: String,
-    numCycles: Number,
     cycles: [String],
     parent: String
 });
 
 const cycleSchema = new mongoose.Schema( {
     //_id: String,
-    numDays: Number,
     startDate: Date,
     endDate: Date,
     days: [String],
@@ -28,7 +26,6 @@ const cycleSchema = new mongoose.Schema( {
 
 const daySchema = new mongoose.Schema( {
     //_id: String,
-    numExercises: Number,
     date: Date,
     isRest: Boolean,
     exercises: [String],
@@ -37,7 +34,6 @@ const daySchema = new mongoose.Schema( {
 
 const exerciseSchema = new mongoose.Schema( {
     //_id: String,
-    numSets: Number,
     type: Number,
     volume: Number,
     sets: [String],

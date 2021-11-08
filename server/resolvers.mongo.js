@@ -179,7 +179,7 @@ const addRoutine = async (routine) => {
     })
     newRoutine.save( (err, r ) => {
         if (err) return console.log(err)
-        console.log("saved set("  + r.id  +")")
+        console.log("saved new routine("  + r.id  +")")
         newRoutine = r
     })
     return newRoutine
@@ -198,7 +198,7 @@ const addCycle = async (cycle) => {
     })
     newCycle.save( (err, c ) => {
         if (err) return console.log(err)
-        console.log("saved set("  + c.id  +")")
+        console.log("saved new cycle("  + c.id  +")")
         newCycle = c
     })
     return newCycle
@@ -217,7 +217,7 @@ const addDay = async (day) => {
     })
     newDay.save( (err, d ) => {
         if (err) return console.log(err)
-        console.log("saved set("  + d.id  +")")
+        console.log("saved new cycle("  + d.id  +")")
         newDay = d
     })
     return newDay
@@ -236,7 +236,7 @@ const addExercise = async (exercise) => {
     })
     newExercise.save( (err, e ) => {
         if (err) return console.log(err)
-        console.log("saved exercise("  + e.id  +")")
+        console.log("saved new exercise("  + e.id  +")")
         newExercise = e
     })
     return newExercise
@@ -255,7 +255,7 @@ const addSet = async (set) => {
     })
     newSet.save( (err, s ) => {
         if (err) return console.log(err)
-        console.log("saved set("  + s.id  +")")
+        console.log("saved new set("  + s.id  +")")
         newSet = s
     })
     return newSet
@@ -363,13 +363,15 @@ const deleteUser = async(id) => {
  * @returns the new set with the corresponding ID
  */
 const editSet = async (newSet, id) => {
-        
+    
     //delete the old set 
     Set.findByIdAndDelete({_id: id}, function(err) {
         if(err){
             console.log(err)
             console.log("could not find routine to delete")
-        }    
+        } else {
+            console.log("deleted old set")
+        }
     })
 
     // create mongo set from model
@@ -384,35 +386,136 @@ const editSet = async (newSet, id) => {
     // save the new mongo set
     await savingSet.save( (err, s ) => {
         if (err) return console.log(err)
-        console.log("saved set("  + s.id  +")")
+        console.log("saved edited set("  + s.id  +")")
     })
 
     return savingSet;
 }
 
 const editExercise = async (newExercise, id) => {
-    //TODO
-    newExercise = {
 
-    }
-    return newExercise
+    //delete old exercise
+    Exercise.findByIdAndDelete({_id: id}, function(err){
+        if(err) {
+            console.log(err)
+            console.log("could not find exercise to delete")
+        } else {
+            console.log("deleted old exercise")
+        }
+    })
+
+    //create mongo exercise from model and input
+    savingExercise = new Exercise({
+        name: newExercise.name,
+        type: newExercise.type,
+        volume: newExercise.volume,
+        maxWeight: newExercise.maxWeight,
+        maxVolume: newExercise.maxVolume,
+        maxReps: newExercise.maxReps,
+        sets: newExercise.sets,
+        parent: newExercise.parent
+
+    })
+
+    //save new exercise
+    await savingExercise.save( (err, e) => {
+        if(err) return console.log(err)
+        console.log("saved edited exercise(" + e.id + ")")
+    })
+
+    //return new exercise (w/ new id)
+    return savingExercise
 }
 
-const editDay = async (newDay) => {
+const editDay = async (newDay, id) => {
 
-    //TODO
-    return newDay
+    //delete old day
+    Day.findByIdAndDelete({_id: id}, function(err){
+        if(err) {
+            console.log(err)
+            console.log("could not find day to delete")
+        } else {
+            console.log("deleted old day")
+        }
+    })
+
+    //create mongo day from model and input
+    savingDay = new Day({
+        date: newDay.day,
+        isRest: newDay.isRest,
+        exercises: newDay.exercises,
+        parent: newDay.parent
+    })
+
+    //save new day
+    await savingDay.save( (err, d) => {
+        if(err) return console.log(err)
+        console.log("saved edited day(" + d.id + ")")
+        
+    })
+
+    //return new day (w/ new id)
+    return savingDay
 }
 
-const editCycle = async (newCycle) => {
-    //TODO
+const editCycle = async (newCycle, id) => {
+    
+    //delete old cycle
+    Cycle.findByIdAndDelete({_id: id}, function(err){
+        if(err) {
+            console.log(err)
+            console.log("could not find cycle to delete")
+        } else {
+            console.log("deleted old cycle")
+        }
+    })
 
-    return newCycle
+    //create mongo cycle from model and input
+    savingCycle = new Cycle({
+        startDate: newCycle.startDate,
+        endDate: newCycle.endDate,
+        days: newCycle.days,
+        parent: newCycle.parent
+    })
+
+    //save new cycle
+    await savingCycle.save( (err, c) => {
+        if(err) return console.log(err)
+        console.log("saved edited cycle(" + c.id + ")")
+        
+    })
+
+    //return new cycle (w/ new id)
+    return savingCycle
 }
 const editRoutine = async (newRoutine) => {
-    //TODO
+    
+     //delete old routine
+     Routine.findByIdAndDelete({_id: id}, function(err){
+        if(err) {
+            console.log(err)
+            console.log("could not find routine to delete")
+        } else {
+            console.log("deleted old routine")
+        }
+    })
 
-    return newRoutine
+    //create mongo routine from model and input
+    savingRoutine = new Routine({
+        name: newRoutine.name,
+        cycles: newRoutine.cycles,
+        parent: newRoutine.parent
+    })
+
+    //save new routine
+    await savingRoutine.save( (err, r) => {
+        if(err) return console.log(err)
+        console.log("saved edited routine(" + r.id + ")")
+        
+    })
+
+    //return new routine (w/ new id)
+    return savingRoutine
 }
 
 const editUser = async (newUser) => {
