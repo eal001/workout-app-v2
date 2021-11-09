@@ -8,4 +8,4 @@ const server = new ApolloServer({typeDefs, resolvers});
 
 server.listen({port: port}).then( ({url}) => {
     console.log(`server initialized at ${url}`);
-});
+})
