@@ -6,12 +6,14 @@ const url = process.env.MONGO_URL;
 mongoose.connect(url, {useNewUrlParser: true});
 console.log("mongodb connection opened on port " + process.env.MONGO_PORT)
 
-//GET query Method headers
+// Test query to make sure everything works
 
 const test = async () => {
     console.log("test request recieved and validated")
     return "here is the test response"
 }
+
+//GET query Method headers
 
 const user = async (id) => {
     let user = await User.findById(id)
@@ -164,7 +166,22 @@ const set = async (id) => {
 //add mutators
 
 const addUser = async (user) => {
-    //TODO
+    console.log("trying to add new routine")
+
+    let newUser = new User({
+        username: user.username,
+        password: user.password,
+        inKilos: user.inKilos,
+        colorScheme: user.colorScheme,
+        routines: user.routines
+    })
+    newUser.save( (err, u) => {
+        if (err) return console.log(err)
+        console.log("saved new user(" + u.id + ")")
+        newUser = u
+    })
+
+    return newUser
 }
 
 const addRoutine = async (routine) => {
@@ -352,8 +369,21 @@ const deleteRoutine = async (id) => {
 }
 
 const deleteUser = async(id) => {
-    //TODO
 
+    console.log("trying to delete user "+ id)
+
+    const oldUser = await User.findById(id)
+
+    User.findByIdAndDelete({_id: id}, function(err){
+        if(err){
+            console.log(err)
+            console.log("could not find routine " + id)
+        }
+    })
+
+    console.log("deleted")
+
+    return oldUser
 }
 
 /**
@@ -519,8 +549,29 @@ const editRoutine = async (newRoutine) => {
 }
 
 const editUser = async (newUser) => {
-    //TODO
-    return newUser
+    User.findByIdAndDelete({_id: id}, function(err){
+        if(err) { 
+            console.log(err)
+            console.log("could not find user to delete")
+        } else {
+            console.log("deleted old user")
+        }
+    })
+
+    savingUser = new User({
+        username: newUser.username,
+        password: newUser.password,
+        colorScheme: newUser.colorScheme,
+        inKilos: newUser.inKilos,
+        routines: newUser.routines
+    })
+
+    await savingUser.save( (err, r) => {
+        if(err) return console.log(err)
+        console.log("saved edited user(" + u.id + ")")
+    })
+
+    return savingUser
 }
 
 module.exports = {
