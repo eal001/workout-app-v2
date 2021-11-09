@@ -141,6 +141,7 @@ type Mutation {
     deleteExercise(id: ID!): Exercise,                          # deletes an exercise from the database given its ID
     deleteSet(id: ID!): Set                                     # deletes a set from the database given its ID
 
+    editUser(id: ID!, routine: UserInput): User,                # replaces the user with the given ID with the param user, returns the old user
     editRoutine(id: ID!, routine: RoutineInput): Routine,       # replaces the routine with the given ID with the param routine, returns the old routine
     editCycle(id: ID!, cycle: CycleInput):  Cycle               # replaces the cycle with the given ID with the param cycle, returns the old cycle
     editDay(id: ID!, day: DayInput): Day                        # replaces the day with the given ID with the param day, returns the old day
