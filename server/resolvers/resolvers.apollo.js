@@ -49,7 +49,7 @@ const resolvers = {
         addDay: (_, {day}) => add_mutators.addDay(day),
         addCycle: (_, {cycle}) => add_mutators.addCycle(cycle),
         addRoutine: (_, {routine}) => add_mutators.addRoutine(routine),
-        addUser: (_, {users}) => add_mutators.addUser(user),
+        addUser: (_, {user}) => add_mutators.addUser(user),
 
         deleteSet: (_, {id}) => delete_mutators.deleteSet(id),
         deleteExercise: (_, {id}) => delete_mutators.deleteExercise(id),
